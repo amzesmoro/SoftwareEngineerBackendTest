@@ -3,12 +3,18 @@ const { User, Role } = require('../../sequelize');
 const paginator = require('../helper/pagination');
 const currentDate = require('../helper/current-date');
 
-const checkUser = (req) => {
+// Create User
+const createUser = (dataInsert) => {
+    return User.create(dataInsert);
+}
+
+// Check User Registered
+const checkUserRegistered = (req) => {
     return User.findAll({
         where: {
             [Op.or]: [
-                { email: req.body.email_username },
-                { username: req.body.email_username }
+                { email: req.body.email },
+                { username: req.body.username }
             ],
             deleted_at: null
         },
@@ -25,6 +31,7 @@ const checkUser = (req) => {
     });
 }
 
+// Get All User
 const getAllUser = (req) => {
     const pagination = paginator(req.query.page, 10); // set 1 page = 10 length data
     const limit = pagination.limit;
@@ -47,6 +54,7 @@ const getAllUser = (req) => {
     });
 }
 
+// Get Detail User
 const getDetailUser = (id) => {
     return User.findAll({
         where: {
@@ -58,10 +66,7 @@ const getDetailUser = (id) => {
         include: [
             {
                 model: Role,
-                as: 'role',
-                where: {
-                    deleted_at: null
-                }
+                as: 'role'
             }
         ]
     }).then(docs => {
@@ -69,8 +74,17 @@ const getDetailUser = (id) => {
     });
 }
 
+// Delete User
+const deleteUser = (id, deleteData) => {
+    return User.update(deleteData, {
+        where: { id: id }
+    });
+}
+
 module.exports = {
-    checkUser,
+    createUser,
+    checkUserRegistered,
     getAllUser,
-    getDetailUser
+    getDetailUser,
+    deleteUser
 }
