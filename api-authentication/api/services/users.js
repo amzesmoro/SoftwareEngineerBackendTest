@@ -16,7 +16,25 @@ const checkUserRegistered = (req) => {
                 { email: req.body.email },
                 { username: req.body.username }
             ],
-            deleted_at: null
+        },
+        order: [['created_at', 'DESC']],
+        limit: 1,
+        include: [
+            {
+                model: Role,
+                as: 'role'
+            }
+        ]
+    }).then(user => {
+        return user;
+    });
+}
+
+// Check Username to Login
+const checkUsername = (username) => {
+    return User.findAll({
+        where: {
+            username: username
         },
         order: [['created_at', 'DESC']],
         limit: 1,
@@ -84,6 +102,7 @@ const deleteUser = (id, deleteData) => {
 module.exports = {
     createUser,
     checkUserRegistered,
+    checkUsername,
     getAllUser,
     getDetailUser,
     deleteUser

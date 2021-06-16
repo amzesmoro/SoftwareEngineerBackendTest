@@ -33,4 +33,14 @@ module.exports = {
     npm run start
 ```
 
+In this project, using JSON WEB TOKEN (jwt) to secure the app. If you wanna try on Postman, first do login. To access the endpoint, you must enter the token on **Auth** tab, select **Bearer Token** as a type, then fill the token field.
+
 ### Endpoint
+* /login --> only user has been registered can login
+* /check-token --> check token 
+* /logout --> user do logout
+* /get-roles --> only admin can access
+* /create-user --> only admin can access
+* /get-all-users --> only admin can access
+* /detail-user --> only admin can access and user with the same id
+* /delete-user --> only admin can access
