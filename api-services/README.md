@@ -35,3 +35,8 @@ module.exports = {
 ```
 
 ### Endpoint
+* /api/transactions/create
+* /api/transactions/get-all
+* /api/transactions/get-detail
+* /api/transactions/update
+* /api/transactions/delete
