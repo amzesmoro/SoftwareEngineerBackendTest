@@ -1,7 +1,6 @@
 const { Op } = require('sequelize');
 const { User, Role } = require('../../sequelize');
 const paginator = require('../helper/pagination');
-const currentDate = require('../helper/current-date');
 
 // Create User
 const createUser = (dataInsert) => {
