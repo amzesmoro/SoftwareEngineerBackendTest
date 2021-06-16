@@ -22,7 +22,7 @@ const doLogin = (req, res, next) => {
         }
         
         if (user.status == false) {
-            return res.status(201).json({
+            return res.status(401).json({
                 message: 'Your account has been disabled. Please contact admin to reactive again!'
             });            
         }
