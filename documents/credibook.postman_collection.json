@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "3597cdc0-28a4-4bab-84e1-8c991a9fca73",
+		"name": "credibook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"amzesmoro001\",\n    \"password\": \"amzesmoro001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHECK TOKEN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbjAwMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMDAxIiwiZmlyc3RuYW1lIjoiYWRtaW4iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDAxOjIzOjQwLjAwMFoiLCJjcmVhdGVkX2J5IjpudWxsLCJyb2xlIjp7ImlkIjoxLCJkZXNjcmlwdGlvbiI6ImFkbWluIGZvciB0ZXN0IiwibmFtZSI6ImFkbWluIn0sImlhdCI6MTYyMzc5ODc0NCwiZXhwIjoxNjIzODA5NTQ0fQ.BkvEV715DdDlsnx-3E5LiY6o9jYRBpR_SCaIRQtiONY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/check-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"check-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbjAwMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMDAxIiwiZmlyc3RuYW1lIjoiYWRtaW4iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDAxOjIzOjQwLjAwMFoiLCJjcmVhdGVkX2J5IjpudWxsLCJyb2xlIjp7ImlkIjoxLCJkZXNjcmlwdGlvbiI6ImFkbWluIGZvciB0ZXN0IiwibmFtZSI6ImFkbWluIn0sImlhdCI6MTYyMzc5ODc0NCwiZXhwIjoxNjIzODA5NTQ0fQ.BkvEV715DdDlsnx-3E5LiY6o9jYRBpR_SCaIRQtiONY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "CREATE TRANSACTION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhbXplc21vcm8wMDFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJhbXplc21vcm8wMDEiLCJmaXJzdG5hbWUiOiJhbXplc21vcm8iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDIzOjQzOjIxLjAwMFoiLCJjcmVhdGVkX2J5IjoxLCJyb2xlIjp7ImlkIjoyLCJkZXNjcmlwdGlvbiI6InVzZXIgZm9yIHRlc3QiLCJuYW1lIjoidXNlciJ9LCJpYXQiOjE2MjM5MzUzNjMsImV4cCI6MTYyMzk0NjE2M30.I9tOvtfOQvDuLwEela7S6uIp8hRAWbxJ56UYWJyaEaw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 3000,\n    \"notes\": \"Beli Teh Pucuk 001\",\n    \"created_at\": \"\",\n    \"created_by\": \"\",\n    \"type\": \"expense\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8002/api/transactions/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"api",
+								"transactions",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL TRANSACTIONS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhbXplc21vcm8wMDFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJhbXplc21vcm8wMDEiLCJmaXJzdG5hbWUiOiJhbXplc21vcm8iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDIzOjQzOjIxLjAwMFoiLCJjcmVhdGVkX2J5IjoxLCJyb2xlIjp7ImlkIjoyLCJkZXNjcmlwdGlvbiI6InVzZXIgZm9yIHRlc3QiLCJuYW1lIjoidXNlciJ9LCJpYXQiOjE2MjM5NDYzMzcsImV4cCI6MTYyMzk1NzEzN30.BqmdTIn1cIWnljsB1QveKCV8RmwZIs6sOvSDw-JnjHs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/api/transactions/get-all?page=1&type=expense&amount=1000,15000&sortBy=amount&sortType=ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"api",
+								"transactions",
+								"get-all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "expense"
+								},
+								{
+									"key": "amount",
+									"value": "1000,15000"
+								},
+								{
+									"key": "sortBy",
+									"value": "amount"
+								},
+								{
+									"key": "sortType",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DETAIL TRANSACTION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhbXplc21vcm8wMDRAZ21haWwuY29tIiwidXNlcm5hbWUiOiJhbXplc21vcm8wMDQiLCJmaXJzdG5hbWUiOiJhbXplc21vcm8iLCJsYXN0bmFtZSI6IjAwNCIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE2VDE3OjQzOjIwLjAwMFoiLCJjcmVhdGVkX2J5IjoxLCJyb2xlIjp7ImlkIjoyLCJkZXNjcmlwdGlvbiI6InVzZXIgZm9yIHRlc3QiLCJuYW1lIjoidXNlciJ9LCJpYXQiOjE2MjM4NjU0MzYsImV4cCI6MTYyMzg3NjIzNn0.OqJP1M37E_KzvcNNLqe0neK_W64dkeNgS6vM7M6IRjE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/api/transactions/get-detail?id=8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"api",
+								"transactions",
+								"get-detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE TRANSACTION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhbXplc21vcm8wMDFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJhbXplc21vcm8wMDEiLCJmaXJzdG5hbWUiOiJhbXplc21vcm8iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDIzOjQzOjIxLjAwMFoiLCJjcmVhdGVkX2J5IjoxLCJyb2xlIjp7ImlkIjoyLCJkZXNjcmlwdGlvbiI6InVzZXIgZm9yIHRlc3QiLCJuYW1lIjoidXNlciJ9LCJpYXQiOjE2MjM4NjQ4NjMsImV4cCI6MTYyMzg3NTY2M30.VlgfnZwoRXFfWne69zcUTwyqtTfiWuxhq0TVHtsFZTQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/api/transactions/delete?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"api",
+								"transactions",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE TRANSACTION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhbXplc21vcm8wMDFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJhbXplc21vcm8wMDEiLCJmaXJzdG5hbWUiOiJhbXplc21vcm8iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDIzOjQzOjIxLjAwMFoiLCJjcmVhdGVkX2J5IjoxLCJyb2xlIjp7ImlkIjoyLCJkZXNjcmlwdGlvbiI6InVzZXIgZm9yIHRlc3QiLCJuYW1lIjoidXNlciJ9LCJpYXQiOjE2MjM4NjQ4NjMsImV4cCI6MTYyMzg3NTY2M30.VlgfnZwoRXFfWne69zcUTwyqtTfiWuxhq0TVHtsFZTQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 30000,\n    \"notes\": \"Beli Kopi XYZ 001\",\n    \"updated_at\": \"\",\n    \"updated_by\": \"\",\n    \"type\": \"expense\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8002/api/transactions/update?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"api",
+								"transactions",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "GET ROLE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbjAwMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMDAxIiwiZmlyc3RuYW1lIjoiYWRtaW4iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDAxOjIzOjQwLjAwMFoiLCJjcmVhdGVkX2J5IjpudWxsLCJyb2xlIjp7ImlkIjoxLCJkZXNjcmlwdGlvbiI6ImFkbWluIGZvciB0ZXN0IiwibmFtZSI6ImFkbWluIn0sImlhdCI6MTYyMzgwMDMzOSwiZXhwIjoxNjIzODExMTM5fQ.zMU7FSDOwHAhudjctCHO6AW2y3Oj0e-VSiURnUfrwZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/get-roles?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"get-roles"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL USERS",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbjAwMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMDAxIiwiZmlyc3RuYW1lIjoiYWRtaW4iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDAxOjIzOjQwLjAwMFoiLCJjcmVhdGVkX2J5IjpudWxsLCJyb2xlIjp7ImlkIjoxLCJkZXNjcmlwdGlvbiI6ImFkbWluIGZvciB0ZXN0IiwibmFtZSI6ImFkbWluIn0sImlhdCI6MTYyMzgwMDMzOSwiZXhwIjoxNjIzODExMTM5fQ.zMU7FSDOwHAhudjctCHO6AW2y3Oj0e-VSiURnUfrwZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/get-all-users?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"get-all-users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbjAwMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMDAxIiwiZmlyc3RuYW1lIjoiYWRtaW4iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDAxOjIzOjQwLjAwMFoiLCJjcmVhdGVkX2J5IjpudWxsLCJyb2xlIjp7ImlkIjoxLCJkZXNjcmlwdGlvbiI6ImFkbWluIGZvciB0ZXN0IiwibmFtZSI6ImFkbWluIn0sImlhdCI6MTYyMzg2MTUzMywiZXhwIjoxNjIzODcyMzMzfQ.bLM_R5WowTJ9JxNe1Ey4E9BteP61Y1DjyrJMV_d1xlo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_role\": 2,\n    \"email\": \"amzesmoro004@gmail.com\",\n    \"password\": \"amzesmoro004\",\n    \"password_confirmation\": \"amzesmoro004\",\n    \"username\": \"amzesmoro004\",\n    \"firstname\": \"amzesmoro\",\n    \"lastname\": \"004\",\n    \"mobile_number\": 812590011,\n    \"status\": true,\n    \"created_at\": \"\",\n    \"created_by\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8001/create-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETAIL USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJhbXplc21vcm8wMDFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJhbXplc21vcm8wMDEiLCJmaXJzdG5hbWUiOiJhbXplc21vcm8iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDIzOjQzOjIxLjAwMFoiLCJjcmVhdGVkX2J5IjoxLCJyb2xlIjp7ImlkIjoyLCJkZXNjcmlwdGlvbiI6InVzZXIgZm9yIHRlc3QiLCJuYW1lIjoidXNlciJ9LCJpYXQiOjE2MjM4MDA2MzMsImV4cCI6MTYyMzgxMTQzM30.4ZeYlIvXe7wivWydKr1QBMkUIq6DlhEdP46N9AlsTEM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/detail-user?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"detail-user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbjAwMUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluMDAxIiwiZmlyc3RuYW1lIjoiYWRtaW4iLCJsYXN0bmFtZSI6IjAwMSIsIm1vYmlsZV9udW1iZXIiOiI4MTI1OTAwMTEiLCJzdGF0dXMiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIxLTA2LTE1VDAxOjIzOjQwLjAwMFoiLCJjcmVhdGVkX2J5IjpudWxsLCJyb2xlIjp7ImlkIjoxLCJkZXNjcmlwdGlvbiI6ImFkbWluIGZvciB0ZXN0IiwibmFtZSI6ImFkbWluIn0sImlhdCI6MTYyMzgwMDMzOSwiZXhwIjoxNjIzODExMTM5fQ.zMU7FSDOwHAhudjctCHO6AW2y3Oj0e-VSiURnUfrwZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/delete-user?id=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"delete-user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
