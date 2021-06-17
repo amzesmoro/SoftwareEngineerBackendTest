@@ -43,12 +43,13 @@ module.exports = {
 
 #### Example ednpoint
 * Sorted by amount and date from client side
+** `Sorted by amount and date from client side`
 ** http://localhost:8002/api/transactions/get-all?page=1&sortBy=created_at&sortType=DESC
-*  http://localhost:8002/api/transactions/get-all?page=1&sortBy=created_at&sortType=DESC
+**  `http://localhost:8002/api/transactions/get-all?page=1&sortBy=created_at&sortType=DESC`
 
-* Filtered by type and range of amount from client side
-** {http://localhost:8002/api/transactions/get-all?page=1&type=expense}
-** http://localhost:8002/api/transactions/get-all?page=1&amount=50000,250000
+** Filtered by type and range of amount from client side
+* `{http://localhost:8002/api/transactions/get-all?page=1&type=expense}`
+** `http://localhost:8002/api/transactions/get-all?page=1&amount=50000,250000`
 
-Contoh combinasi enpoint, akan menjadi sekerrti berukut: 
+Contoh combinasi enpoint:
 `http://localhost:8002/api/transactions/get-all?page=1&amount=50000,250000`
