@@ -13,16 +13,54 @@ const getAllTransaction = (req) => {
     const pagination = paginator(req.query.page, 10); // set 1 page = 10 length data
     const limit = pagination.limit;
     const offset = pagination.offset;
-    return Transaction.findAndCountAll({
-        where: {
-            [Op.and]: {
-                created_by: id,
-                deleted_at: null,
+
+    const sortBy = req.query.sortBy ? req.query.sortBy : '';
+    let sortType = req.query.sortType ? req.query.sortType : '';
+    const type = req.query.type ? req.query.type : '';
+    const amount = req.query.amount ? req.query.amount : '';
+
+    // Sorting
+    let sort = [['created_at', 'DESC']]; // set default if query == '';
+
+    if (sortBy) {
+        sort = [];
+        sortType = (sortType == '') ? 'DESC' : sortType;
+        sort.push([sortBy, sortType]);
+    }
+
+    let rangeAmount;
+    if (amount) {
+        let startAmount = amount.split(','[0]);
+        let endAmount = amount.split(',')[1];
+        rangeAmount = {
+            [Op.between]: [parseFloat(startAmount), parseFloat(endAmount)]
+        }
+    } else {
+        rangeAmount = ''
+    }
+
+    let whereObj = {
+        created_by: id,
+        deleted_at: null,
+        type: type,
+        amount: rangeAmount
+    }
+
+    const cleanObj = (obj) => {
+        for (var objWhere in obj) {
+            if (obj[objWhere] === '' || obj[objWhere] === undefined) {
+                delete obj[objWhere];
             }
-        },
+        }
+    }
+
+    cleanObj(whereObj);
+
+    return Transaction.findAndCountAll({
+        where: whereObj,
         limit,
         offset,
-        order: [['created_at', 'DESC']]
+        order: sort
     }).then(docs => {
         return {
             data: docs,

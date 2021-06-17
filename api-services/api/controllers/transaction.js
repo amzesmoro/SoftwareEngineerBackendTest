@@ -59,6 +59,7 @@ const getAllTransaction = (req, res, next) => {
                         amount: doc.amount,
                         notes: doc.notes,
                         created_at: doc.created_at,
+                        deleted_at: doc.deleted_at,
                         updated_at: doc.updated_at,
                         created_by: doc.created_by,
                         updated_by: doc.udpated_by,
