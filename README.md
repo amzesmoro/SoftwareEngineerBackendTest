@@ -7,3 +7,5 @@ This folder contains two folder projects, namely:
 
 To see the result of this task, please running these two project.
 api-authentication running on port: *8001*, and api-services  on port: *8002*
+
+Didalam root proyek terdapat folder, yaitu: **documents**. Folder ini berisi tentang colletion API dan .sql and .csv
