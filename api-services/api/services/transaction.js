@@ -30,7 +30,7 @@ const getAllTransaction = (req) => {
 
     let rangeAmount;
     if (amount) {
-        let startAmount = amount.split(','[0]);
+        let startAmount = amount.split(',')[0];
         let endAmount = amount.split(',')[1];
         rangeAmount = {
             [Op.between]: [parseFloat(startAmount), parseFloat(endAmount)]
