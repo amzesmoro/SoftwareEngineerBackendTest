@@ -16,3 +16,5 @@ Berdasarkan Technical Use Case, maka task saya ini memenuhi:
 - [x] Sorted by amount and date from client side
 - [x] Filtered by type and range of amount from client side
 - [x] Completed with pagination query from client side
+
+### Just Test
